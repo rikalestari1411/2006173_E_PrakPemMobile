@@ -200,7 +200,7 @@ class LatestNewsCard extends StatelessWidget {
                     child: AspectRatio(
                       aspectRatio: 1 / 1,
                       child: Image.network(
-                        "https://picsum.photos/200",
+                        "https://www.linkpicture.com/q/Gorengan.jpg",
                       ),
                     ),
                   ),
@@ -209,7 +209,7 @@ class LatestNewsCard extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "${i + 1}. Laboris fugiat eiusmod consequat aliqua eiusmod.",
+                      "${i + 1}. Gorengan | Popular Indonesian Street Food",
                     ),
                   ),
                 ),

@@ -28,80 +28,88 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Column(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).padding.top,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).padding.top,
             ),
-            child: HeaderWidget(
-              user: widget.user,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              child: HeaderWidget(
+                user: widget.user,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          const Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16,
+            const SizedBox(
+              height: 16,
             ),
-            child: SearchFieldWidget(),
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  child: SectionTitle(
-                    label: "Hotest News",
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  child: HotestNewsCard(
-                    size: size,
-                    newsTitle: "Lebaran Sebentar Lagi",
-                    pictureUrl: "https://picsum.photos/1080/690",
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: SectionTitle(
-                    label: "Latest News",
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                  ),
-                  child: LatestNewsIndexCardSection(
-                    size: size,
-                  ),
-                ),
-              ],
+            const Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 16,
+              ),
+              child: SearchFieldWidget(),
             ),
-          ),
-        ],
+            const SizedBox(
+              height: 16,
+            ),
+            ListView.builder(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                      ),
+                      child: SectionTitle(
+                        label: "Hotest News",
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                      ),
+                      child: HotestNewsCard(
+                        size: size,
+                        newsTitle: "Indonesian Street Food",
+                        pictureUrl:
+                            "https://www.linkpicture.com/q/Desain-tanpa-judul.jpg",
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: SectionTitle(
+                        label: "Latest News",
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 16,
+                      ),
+                      child: LatestNewsIndexCardSection(
+                        size: size,
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
